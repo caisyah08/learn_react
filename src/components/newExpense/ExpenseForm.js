@@ -6,8 +6,29 @@ export default function ExpenseForm() {
   const [enteredAmount, setEnteredAmount] = useState('')
   const [enteredDate, setEnteredDate] = useState('')
 
+  const [userInput, setUserInput] = useState({
+    enteredTitle: '',
+    enteredAmount: '',
+    enteredDate: ''
+  })
+
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value)
+
+    // approach for one single useState with multiple state
+    // bad approach 
+    // setUserInput({
+    //   ...userInput,
+    //   enteredTitle: event.target.value
+    // })
+
+    // best approach 
+    // setUserInput((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     enteredTitle : event.target.value
+    //   }
+    // })
     console.log(event.target, 'target event title')
   }
 
@@ -24,7 +45,7 @@ export default function ExpenseForm() {
   return (
     <form>
       <div className="new-expense__controls">
-        
+
         <div className="new-expense__control">
           <label>Title</label>
           <input type="text" onChange={setEnteredTitle} />
