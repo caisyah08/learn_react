@@ -1,7 +1,8 @@
 // kalau huruf kecil nama custom elemennya enggak akan bisa jalan
 // import expenseitem from "./components/ExpenseItem";
 
-import ExpenseItem from "./components/ExpenseItem.jsx";
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/newExpense/NewExpense";
 
 function App() {
   const expenses = [
@@ -27,29 +28,8 @@ function App() {
   ];
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <ExpenseItem
-        title={expenses[0].title}
-        date={expenses[0].date}
-        amount={expenses[0].amount}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[1].title}
-        date={expenses[1].date}
-        amount={expenses[1].amount}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[2].title}
-        date={expenses[2].date}
-        amount={expenses[2].amount}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[3].title}
-        date={expenses[3].date}
-        amount={expenses[3].amount}
-      ></ExpenseItem>
-      {/* di bawah ini enggak jalan */}
-      {/* <expenseitem></expenseitem> */}
+      <NewExpense/>
+      <Expenses expenses={expenses}/>
     </div>
   );
 }
